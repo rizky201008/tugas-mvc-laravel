@@ -20,4 +20,4 @@ use App\Http\Controllers\ArticleController;
 // });
 Route::get('/',[HomeController::class,'index']);
 Route::get('/home',[HomeController::class,'index']);
-Route::get('/article',[ArticleController::class,'index']);
+Route::get('/manage/article',[ArticleController::class,'index'])->name('manage.article');

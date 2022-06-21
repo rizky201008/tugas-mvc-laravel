@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \App\Models\Article;
+use \App\Models\Category;
 
 class ArticleController extends Controller
 {
@@ -13,7 +15,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return view('article/index');
+        $articles=Article::orderBy('id', 'DESC')->get();
+        return view('article.manage.index', compact('articles'));
     }
 
     /**
