@@ -1,3 +1,18 @@
+Settingan Awal Untuk Local
+==========================
+
+1\. Aktifkan mysql di localhost untuk Windows bisa menggunakan aplikasi laragon atau XAMPP.
+
+2\. Konfigurasi database anda di file .env baris 14-16
+
+3\. Buka terminal pada folder yang ada file artisan.
+
+4\. Run = "php artisan migrate". (untuk impor data ke database)
+
+5\. Run = "php artisan serve". (untuk menjalankan server)
+
+6\. Buka browser ketik http://localhost:8000
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">

@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\MahasiswaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +17,9 @@ use App\Http\Controllers\ArticleController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/',[HomeController::class,'index']);
-Route::get('/home',[HomeController::class,'index']);
-Route::get('/manage/article',[ArticleController::class,'index'])->name('manage.article');
+Route::get('/', [MahasiswaController::class, 'index']);
+Route::get('/create', [MahasiswaController::class, 'create']);
+Route::post('/store', [MahasiswaController::class, 'store']);
+Route::get('/show/{id}', [MahasiswaController::class, 'show']);
+Route::post('/update/{id}', [MahasiswaController::class, 'update']);
+Route::get('/delete/{id}', [MahasiswaController::class, 'destroy']);

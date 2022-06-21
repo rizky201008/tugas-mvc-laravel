@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use \App\Models\Article;
-use \App\Models\Category;
+use App\Models\M_Mahasiswa;
 
-class ArticleController extends Controller
+class MahasiswaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,10 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles=Article::orderBy('id', 'DESC')->get();
-        return view('article.manage.index', compact('articles'));
+        $data = M_Mahasiswa::all();
+        return view('index')->with([
+            'data'=>$data
+        ]);
     }
 
     /**
@@ -26,7 +27,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -37,7 +38,9 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->except(['_token']);
+        M_Mahasiswa::insert($data);
+        return redirect('/');
     }
 
     /**
@@ -48,7 +51,10 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = M_Mahasiswa::findOrFail($id);
+        return view('show')->with([
+            'data' => $data
+        ]);
     }
 
     /**
@@ -71,7 +77,10 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $item = M_Mahasiswa::findOrFail($id);
+        $data = $request->except(['_token']);
+        $item->update($data);
+        return redirect('/');
     }
 
     /**
@@ -82,6 +91,8 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = M_Mahasiswa::findOrFail($id);
+        $item->delete();
+        return redirect('/');
     }
 }
